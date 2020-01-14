@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title :</strong>
+  <%= @theme.title %>
+</p>
+
+<p>
+  <strong>Description :</strong>
+  <%= @theme.description %>
+</p>
+
+<p>
+	<strong>Oeuvres :</strong>
+	  <% @theme.arts.each do |art| %>
+  <%= art.title %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_theme_path(@theme) %> |
+<%= link_to 'Back', themes_path %>

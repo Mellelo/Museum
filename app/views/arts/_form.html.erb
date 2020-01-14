@@ -1,47 +1,10 @@
-<%= form_with(model: art, local: true) do |form| %>
-  <% if art.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(art.errors.count, "error") %> prohibited this art from being saved:</h2>
-
-      <ul>
-      <% art.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_area :picture %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.number_field :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dimension %>
-    <%= form.text_field :dimension %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for @art do |f| %>
+  <%= f.input :title %>
+  <%= f.input :picture %>
+  <%= f.input :author %>
+  <%= f.input :date %>
+  <%= f.input :description %>
+  <%= f.input :dimension %>
+  <%= f.association :theme %>
+  <%= f.button :submit %>
 <% end %>
